@@ -16,11 +16,11 @@ class Lock {
 
     public:
         Lock(pthread_mutex_t* pMtx);
-        ~Lock();
+        virtual ~Lock();
     
     private:
         Lock(const Lock& l);
-	    Lock& operator=(Lock& l);
+        Lock& operator=(Lock& l);
 };
 
 #endif /* LOCK_H_ */
