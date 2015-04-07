@@ -59,23 +59,23 @@ Outer& Outer::operator=(const Outer& other){
 	printf("operator=(const Outer& other)\n");
 	if(this != &other){
 		delete inner;
-		inner = new Inner( *(other.inner) );
+		inner = new Inner( *(other.inner) ); // Deep Copy
 	}
 	return *this;
 }
 
 Outer::~Outer(){
-	printf("~Outer()\n");
 	delete inner;
+	printf("~Outer()\n");
 }
 
 // Democode
 void call_by_val(Outer a){
-	printf("call_by_val\n");
+	printf("call_by_val(Outer a)\n");
 }
 
 void call_by_ref(Outer& a){
-	printf("call_by_ref\n");
+	printf("call_by_ref(Outer& a)\n");
 }
 
 int main() {

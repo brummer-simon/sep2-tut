@@ -1,8 +1,8 @@
-
 //============================================================================
 // Name        : tutorium_2-constructors.cpp
 // Author      : Simon Brummer
 // Description : Constructor Special. Explanation of the "great Three".
+//               Difference Call by Value and Call by Reference
 //============================================================================
 #include <iostream>
 #include <stdio.h>
@@ -14,21 +14,21 @@ private:
 	string* pName_;
 
 public:
-	Obj();
-	Obj(string name);
-	Obj(const Obj& other);
-	Obj& operator=(const Obj& other);
-	virtual ~Obj();
+	Obj();                            // Constructor
+	Obj(string name);                 // Constructor with Parameter
+	Obj(const Obj& other);            // Copy Constructor
+	Obj& operator=(const Obj& other); // Assignment Operator
+	virtual ~Obj();                   // Destructor
 };
 
 /* Implementation: This goes into usually .cpp-File */
-// Default Constructor
+// Constructor
 Obj::Obj() {
 	this->pName_ = new string("NO_NAME");
 	printf("Name: %s, Func: Obj()\n", this->pName_->c_str());
 };
 
-// Custom Constructor
+// Constructor with Parameter
 Obj::Obj(string name){
 	this->pName_ = new string(name);
 	printf("Name: %s, Func: Obj(string name)\n", this->pName_->c_str());
@@ -40,7 +40,7 @@ Obj::Obj(const Obj& other){
 	printf("Name: %s, Func: Obj(const Obj& other)\n", this->pName_->c_str());
 };
 
-// Assign Operator
+// Assignment Operator
 Obj& Obj::operator=(const Obj& other){
 	printf("Name: %s, Func: operator=(const Obj& other)\n", this->pName_->c_str());
 	if(this != &other){
@@ -52,7 +52,7 @@ Obj& Obj::operator=(const Obj& other){
 
 // Destructor
 Obj::~Obj(){
-	printf("Name: %s, Func: ~Obj\n", this->pName_->c_str());
+	printf("Name: %s, Func: ~Obj()\n", this->pName_->c_str());
 	delete this->pName_;
 };
 
@@ -68,19 +68,30 @@ void call_by_ref(Obj& obj){
 	printf("Func: call_by_ref(Obj& obj)\n");
 }
 
-int main() {
+int main(void) {
 	// Constructors
-	Obj no_name;        // Obj() call.
-	//Obj a("A");         // Obj(string name) call.
-	//Obj b("b");		  // Obj(string name) call.
+	//Obj no_name;        // Obj() call.
+	Obj a("A");         // Obj(string name) call.
+	Obj b("B");		  // Obj(string name) call.
 	//Obj a_cpy(a);       // Obj(const Obj& other) call. Copy Constructor
 
 	// Assignment
-	//b.operator =(a);
-	//b = a;
+	b.operator =(a);
+	b = a;
 
 	// Copy Constructor and Call by Value
 	//call_by_val(no_name);
 	//call_by_ref(no_name);
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+

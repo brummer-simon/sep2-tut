@@ -1,8 +1,8 @@
 /*
  * @file    main.cpp
  * @author  Simon Brummer
- * @version 0.2
- * @desc    Beispiel implementation der Singletonvarianten:
+ * @version 0.3
+ * @desc    Singleton example implementations:
  *          - Gov Singleton
  *          - Meyers Singleton
  *          - DCLP Singleton
@@ -31,10 +31,10 @@ public:
 };
 
 // Implementation
-GOFSingleton* GOFSingleton::instance_ = 0;
+GOFSingleton* GOFSingleton::instance_ = NULL;
 
 GOFSingleton* GOFSingleton::getInstance(){
-	if( !instance_ ){
+	if( instance_ == NULL){
 		instance_ = new GOFSingleton();
 	}
 	return instance_;
@@ -106,14 +106,14 @@ public:
 };
 
 // Implementation
-DCLPSingleton* DCLPSingleton::instance_ = 0;
+DCLPSingleton* DCLPSingleton::instance_ = NULL;
 
 DCLPSingleton* DCLPSingleton::getInstance(){
-	static pthread_mutex_t mtx_ =  PTHREAD_MUTEX_INITIALIZER;
+	static pthread_mutex_t mtx_ = PTHREAD_MUTEX_INITIALIZER;
 
-	if( !instance_ ){
+	if( instance_ == NULL){
 		pthread_mutex_lock(&mtx_);
-		if( !instance_ ){
+		if( instance_ == NULL){
 		    instance_ = new DCLPSingleton();
 		}
 		pthread_mutex_unlock(&mtx_);
