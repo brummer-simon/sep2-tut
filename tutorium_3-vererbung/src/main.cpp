@@ -47,7 +47,6 @@ class Super_Class{
 		ostringstream os;
 		os << "[Super_Class: super_int_=" << super_int_ << "]";
 		return os.str();
-
 	}
 
 	virtual string to_string_virtual(void) const {
@@ -107,7 +106,7 @@ class Base_Class: public Super_Class{
 
 /* Main Function */
 int main(int argc, char** args){
-	// Hier nur heapallokierte Objekte, da es bei stackallokierten
+	// Hier nur heap allokierte Objekte, da es bei stackallokierten
 	// Objekten keine dynamische Bindung gibt bzw. nicht formulierbar ist.
 
 	printf("Konstruktoren Aufrufe\n");
@@ -123,10 +122,17 @@ int main(int argc, char** args){
 	printf("%s\n", base->to_string_non_virtual().c_str() );
 
 	printf("\n\nDestruktoren Aufrufe\n");
-	delete super;
 	delete base;
+	delete super;
 
 	return 0;
 }
+
+
+
+
+
+
+
 
 

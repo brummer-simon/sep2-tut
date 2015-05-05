@@ -17,7 +17,7 @@ using namespace std;
 // Events in the System. Each EVENT needs a corresponding Method in class Transactions
 enum EVENTS{TRANSITION1,TRANSITION2,TRANSITION3,NEVENTS};
 
-// typedef: Method from Class "Transactions"
+// typedef: Method from Class "Transitions"
 typedef void (Transitions::*method_t)(void);
 
 class Dispatcher{
@@ -35,14 +35,14 @@ public:
 		}
 
 		// Add Method pointer to Call Method Array
-		methods[0] = &Transitions::Transition1;
-		methods[1] = &Transitions::Transition2;
-		methods[2] = &Transitions::Transition3;
+		methods[TRANSITION1] = &Transitions::Transition1;
+		methods[TRANSITION2] = &Transitions::Transition2;
+		methods[TRANSITION3] = &Transitions::Transition3;
 	}
 
 	virtual ~Dispatcher(){}
 
-	virtual void addListeners(Transitions* listener, EVENTS event){
+	virtual void addListener(Transitions* listener, EVENTS event){
 		// Add Listener to be called on a specific Event
 		for(int i=0; i<MAXLISTENERS; i++){
 			if( listeners_[event][i] == NULL || listeners_[event][i] == listener){
@@ -53,7 +53,7 @@ public:
 		printf("Sorry, no Space for Listener at requested Event left\n");
 	}
 
-	virtual void remListeners(Transitions* listener, EVENTS event){
+	virtual void remListener(Transitions* listener, EVENTS event){
 		// Remove Listener from a specific Event
 		for(int i=0; i<MAXLISTENERS; i++){
 			if( listeners_[event][i] == listener){

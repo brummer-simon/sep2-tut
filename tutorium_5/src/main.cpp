@@ -20,16 +20,16 @@ int main() {
 	State* s2 = new State("State2");
 
 	// Register s1 and s2 to listen on Event TRANSITION1
-	disp->addListeners(s1, TRANSITION1);
-	disp->addListeners(s2, TRANSITION1);
+	disp->addListener(s1, TRANSITION1);
+	disp->addListener(s2, TRANSITION1);
 
 	// Event TRANSITION1 happens
 	printf("---- TRANSITION1 happens ----\n");
 	disp->callListeners(TRANSITION1);
 
 	// Register s1 as Listener on Event TRANSITION2 and s2 on EVENT TRANSITION3
-	disp->addListeners(s1, TRANSITION2);
-	disp->addListeners(s2, TRANSITION3);
+	disp->addListener(s1, TRANSITION2);
+	disp->addListener(s2, TRANSITION3);
 
 	// Event TRANSITION1 happens
 	printf("---- TRANSITION1 happens ----\n");
@@ -44,7 +44,7 @@ int main() {
 	disp->callListeners(TRANSITION3);
 
 	// Remove s2 as Listener from TRANSITION1
-	disp->remListeners(s2, TRANSITION1);
+	disp->remListener(s2, TRANSITION1);
 
 	// Event TRANSITION1 happens
 	printf("---- TRANSITION1 happens ----\n");
