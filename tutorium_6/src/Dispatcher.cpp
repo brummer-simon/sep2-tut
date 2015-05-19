@@ -35,9 +35,9 @@ private:
 		}
 
 		// Add Method pointer to Call Method Array
-		methods[0] = &Transitions::Transition1;
-		methods[1] = &Transitions::Transition2;
-		methods[2] = &Transitions::Transition3;
+		methods[TRANSITION1] = &Transitions::Transition1;
+		methods[TRANSITION2] = &Transitions::Transition2;
+		methods[TRANSITION3] = &Transitions::Transition3;
 	}
 
 	virtual ~Dispatcher(){
@@ -87,3 +87,15 @@ public:
 };
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+

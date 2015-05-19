@@ -13,7 +13,7 @@
 class S2: public State{
 public:
 	S2(Context* con);
-	~S2();
+	virtual ~S2();
 
 	virtual void Transition1(void);
 	virtual void Transition2(void);
@@ -24,3 +24,16 @@ private:
 };
 
 #endif /* S2_H_ */
+
+
+
+
+
+
+
+
+
+
+
+
+

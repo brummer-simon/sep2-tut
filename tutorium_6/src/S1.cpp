@@ -22,14 +22,13 @@ S1::~S1(){
 }
 
 void S1::Transition1(void){
-	printf("S1::Transition1()\n");
+	printf("S1 --T1--> S2\n");
 
 	// Stop listen to Event Transmission1
 	Dispatcher* dsp = Dispatcher::getInstance();
 	dsp->remListeners( this->con_, TRANSITION1);
 
 	// Move to State S2.
-	printf("S1 --T1--> S2\n");
 	new (this) S2(this->con_);
 }
 

@@ -37,6 +37,16 @@ void S2::Transition1(void){
 
 void S2::Transition2(void){
 	printf("S2 --T2--> S2\n");
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
