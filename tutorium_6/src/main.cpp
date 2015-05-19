@@ -18,7 +18,7 @@ int main() {
 
 	// Fake a series of events
 	Dispatcher* disp = Dispatcher::getInstance();
-	disp->callListeners(TRANSITION3); // S1 don't react on Event Transmission3
+	disp->callListeners(TRANSITION3); // S1 doesn't react on Event Transmission3
 	disp->callListeners(TRANSITION1); // Should move to S1
 	disp->callListeners(TRANSITION2); // Should stay in S2
 	disp->callListeners(TRANSITION1); // Should move to S1

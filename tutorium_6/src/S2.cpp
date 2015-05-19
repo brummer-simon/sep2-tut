@@ -2,8 +2,7 @@
  * @file    S2.cpp
  * @author  Simon Brummer
  * @desc    Tutorium 6. Implementierung von State S2.
- *          Bleibt bei TRANSITION1 in gleichen State, wechselt
- *          bei TRANSITION2 in S1.
+ *          Wechselt bei TRANSITION1 nach S2. Bleibt bei TRANSITION2 in S2.
  */
 #include "S1.h"
 #include "S2.h"
